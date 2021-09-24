@@ -22,6 +22,7 @@ namespace Automation_bootcamp
         public void PopulateInputFields()
         {
             driver.Navigate().GoToUrl("https://www.c-sharpcorner.com/register");
+            driver.Manage().Window.Maximize();
 
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
 
