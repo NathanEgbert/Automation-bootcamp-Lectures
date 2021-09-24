@@ -34,7 +34,7 @@ namespace Automation_bootcamp
 
             driver.FindElement(By.Id("ybar-search")).Click();
 
-            IWebElement table = driver.FindElement(By.XPath("//*[@id='main']/div/ol[1]"));
+            IWebElement table = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@id='main']/div/ol[1]")));
             ReadOnlyCollection<IWebElement> searchElements = table.FindElements(By.TagName("li"));
             for(int i = 1; i< 10; i++)
             {
