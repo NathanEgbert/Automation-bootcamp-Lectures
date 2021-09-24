@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Automation_bootcamp
 {
-    public class Tests
+    public class Lecture13
     {
         IWebDriver driver;
 
