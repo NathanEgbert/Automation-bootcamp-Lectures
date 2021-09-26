@@ -65,11 +65,18 @@ namespace Automation_bootcamp
             driver.Navigate().GoToUrl("https://demoqa.com/select-menu");
             driver.Manage().Window.Maximize();
 
-            driver.FindElement(By.Id("withOptGroup")).Click();
-            Thread.Sleep(200);
+            IWebElement dropdown = driver.FindElement(By.Id("withOptGroup"));
+            dropdown.Click();
+
             //TODO: Fix me
-            var tableElements = driver.FindElements(By.CssSelector("div[class='css-2613qy-menu']"));
-            Thread.Sleep(500);
+            SelectElement menu = new SelectElement(driver.FindElement(By.CssSelector(" div[class='css-2613qy-menu']")));
+            menu.SelectByIndex(2);
+    
+
+
+
+            Thread.Sleep(100);
+           
 
         }
 
