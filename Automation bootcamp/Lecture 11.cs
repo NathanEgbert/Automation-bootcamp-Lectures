@@ -4,6 +4,7 @@ using OpenQA.Selenium.Chrome;
 using System.IO;
 using System.Threading;
 using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace Automation_bootcamp
 {
@@ -65,10 +66,14 @@ namespace Automation_bootcamp
             driver.Navigate().GoToUrl("https://demoqa.com/select-menu");
             driver.Manage().Window.Maximize();
 
-            driver.FindElement(By.Id("withOptGroup")).Click();
-            Thread.Sleep(200);
+            IWebElement DropdownMenu = driver.FindElement(By.Id("withOptGroup"));
+            DropdownMenu.Click();
+
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            IWebElement searchBox = wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("//div[contains(@id, 'react-select')]")));
+
             //TODO: Fix me
-            var tableElements = driver.FindElements(By.CssSelector("div[class='css-2613qy-menu']"));
+            //IWebElement tableElements = DropdownMenu.FindElement(By.CssSelector("//div[contains(@id, 'react-select')]"));
             Thread.Sleep(500);
 
         }
