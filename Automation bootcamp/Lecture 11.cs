@@ -66,15 +66,10 @@ namespace Automation_bootcamp
             driver.Navigate().GoToUrl("https://demoqa.com/select-menu");
             driver.Manage().Window.Maximize();
 
-            IWebElement DropdownMenu = driver.FindElement(By.Id("withOptGroup"));
-            DropdownMenu.Click();
+            driver.Navigate().GoToUrl("https://demoqa.com/select-menu");
 
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
-            IWebElement searchBox = wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("//div[contains(@id, 'react-select')]")));
-
-            //TODO: Fix me
-            //IWebElement tableElements = DropdownMenu.FindElement(By.CssSelector("//div[contains(@id, 'react-select')]"));
-            Thread.Sleep(500);
+            driver.FindElement(By.Id("withOptGroup")).Click();
+            driver.FindElement(By.Id("react-select-2-option-0-1")).Click();
 
         }
 
